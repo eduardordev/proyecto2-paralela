@@ -1,0 +1,19 @@
+
+gcc -o bruteforce00s bruteforce00s.c -I/path/to/openssl/include -lcrypto -Wno-deprecated-declarations
+mpicc -o bruteforce bruteforce.c -I/path/to/openssl/include -lcrypto -Wno-deprecated-declarations
+
+mpicc -o bruteforce00B2 bruteforce00B2.c -I/path/to/openssl/include -lcrypto -Wno-deprecated-declarations
+mpicc -o bruteforce00B3 bruteforce00B3.c -I/path/to/openssl/include -lcrypto -Wno-deprecated-declarations
+mpicc -o bruteforce00B3DDEC bruteforce00B3DDEC.c -I/path/to/openssl/include -lcrypto -Wno-deprecated-declarations
+mpicc -o bruteforce00B3Naive bruteforce00B3Naive.c -I/path/to/openssl/include -lcrypto -Wno-deprecated-declarations
+mpicc -o bruteforce00B3PRS bruteforce00B3PRS.c -I/path/to/openssl/include -lcrypto -Wno-deprecated-declarations
+
+
+./bruteforce00s
+mpirun -np 4 ./bruteforce
+
+mpirun -np 4 ./bruteforce00B2 texto.txt 123456L
+mpirun -np 4 ./bruteforce00B3 texto.txt 123456L
+mpirun -np 4 ./bruteforce00B3DDEC texto.txt 123456L
+mpirun -np 4 ./bruteforce00B3Naive texto.txt 123456L
+mpirun -np 4 ./bruteforce00B3PRS texto.txt 123456L
